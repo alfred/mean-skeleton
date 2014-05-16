@@ -1,9 +1,14 @@
+// Dependencies
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/test');
+// Configs
+var db = require('./config/db');
+// Connect to the DB
+mongoose.connect(db.url);
 
+// App Config
 app.configure(function() {
 	// To expose public assets to the world
 	app.use(express.static(__dirname + '/public'));
@@ -14,6 +19,10 @@ app.configure(function() {
 	// For parsing responses
 	app.use(express.json());
 	app.use(express.urlencoded());
-}).listen(3000);
+});
 
-console.log("App listening on port 3000");
+// Routes
+require('./app/routes')(app);
+
+// Start the app with listen
+app.listen(3000);
