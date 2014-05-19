@@ -1,5 +1,8 @@
 // Module for API Routes (serving JSON)
 module.exports = function(app) {
+	var mongoose = require('mongoose'),
+		People = require('../models/people')
+
 	// Example API route
 	app.get('/peoples', function(req, res) {
 
@@ -7,7 +10,7 @@ module.exports = function(app) {
 		People.find(function(err, peoples) {
 
 			// returns all people in JSON format
-			res.json(peoples);
+			res.send(peoples);
 		});
 	});
 }

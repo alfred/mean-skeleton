@@ -23,8 +23,8 @@ app.configure(function() {
 });
 
 // Routes
-require('./app/routes')(app);
-require('./app/api')(app);
+require('./app/routes/api')(app);
+require('./app/routes/routes')(app);
 
 // Start the app with listen
 app.listen(3000);
