@@ -3,15 +3,14 @@ Schema = mongoose.Schema;
 
 // Validation helper methods
 function validatePresenceOf(input) {
-	return this.provider;
+	return input.length;
 }
 
 // Model Schema
 var UserSchema = new Schema ({
 	name : {
 		type: String,
-		required : true,
-		validations : [validatePresenceOf, 'Name cannot be blank']
+		required : 'Name is required'
 	},
 });
 

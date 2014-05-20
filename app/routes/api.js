@@ -7,20 +7,20 @@ module.exports = function(app) {
 	app.get('/users', function(req, res) {
 
 		// Checks the User collection and returns all of them`
-		User.find(function(err, peoples) {
+		User.find(function(err, users) {
 
 			// returns all people in JSON format
-			res.send(peoples);
+			res.send(users);
 		});
 	});
 
 	// Example POST route
 	app.post('/users', function (req, res) {
 		User.create({
-			name: req.body.text
+			name : req.body.text
 		}, function(err, user) {
 			if(err) {
-				res.send(err);
+				res.send(err.message);
 			}
 
 			User.find(function(err, users) {

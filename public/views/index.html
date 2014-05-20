@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appSkeleton">
 <head>
-	<title>MEAN Starter Page</title>
+	<title>MEAN Skeleton Page</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 	<!--  Angular from Google CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+	<!-- Load AppController -->
+	<script type="text/javascript" src="../controllers/app.js"></script>
 </head>
-<body>
-<h1>Hello World</h1>
+<body ng-controller="appCtrl">
+<div class="container">
+	<div class="jumbotron text-center">
+	<h1>Users <span class="label label-info">{{ users.length }}</span></h1>
+	</div>
+
+	<!-- USER LIST -->
+	<div id="user-list" class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+
+			<!-- LOOP OVER THE USERS IN $scope.users -->
+			<div class="checkbox" ng-repeat="user in users">
+				<label>
+					<input type="checkbox" ng-click="deleteUser(user._id)"> {{ user.name }}
+				</label>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- FORM TO CREATE TODOS -->
+	<div id="user-form" class="row">
+		<div class="col-sm-8 col-sm-offset-2 text-center">
+			<form>
+				<div class="form-group">
+
+					<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+					<input type="text" class="form-control input-lg text-center" placeholder="Name goes here" ng-model="formData.text">
+				</div>
+
+				<!-- createToDo() WILL CREATE NEW TODOS -->
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Add</button>
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
