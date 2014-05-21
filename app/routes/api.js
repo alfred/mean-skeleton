@@ -17,10 +17,10 @@ module.exports = function(app) {
 	// Example POST route
 	app.post('/users', function (req, res) {
 		User.create({
-			name : req.body.text
+			name : req.body.name
 		}, function(err, user) {
 			if(err) {
-				res.send(err.message);
+				res.send(err);
 			}
 
 			User.find(function(err, users) {

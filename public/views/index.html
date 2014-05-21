@@ -3,7 +3,7 @@
 <head>
 	<title>MEAN Skeleton Page</title>
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 	<!--  Angular from Google CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
@@ -13,7 +13,7 @@
 <body ng-controller="appCtrl">
 <div class="container">
 	<div class="jumbotron text-center">
-	<h1>Users <span class="label label-info">{{ users.length }}</span></h1>
+	<h1>Models <span class="label label-info">{{ users.length }}</span></h1>
 	</div>
 
 	<!-- USER LIST -->
@@ -21,27 +21,38 @@
 		<div class="col-sm-4 col-sm-offset-4">
 
 			<!-- LOOP OVER THE USERS IN $scope.users -->
-			<div class="checkbox" ng-repeat="user in users">
-				<label>
-					<input type="checkbox" ng-click="deleteUser(user._id)"> {{ user.name }}
-				</label>
+			<div ng-repeat="user in users">
+				<div class="input-group input-group-lg">
+					<div class="input-group-addon">
+						<div class="glyphicon glyphicon-remove" ng-click="deleteUser(user._id)">
+						</div>
+					</div>
+
+					<div type="text" class="form-control"> {{user.name}}</div>
+				</div>
 			</div>
 
 		</div>
 	</div>
 
 	<!-- FORM TO CREATE TODOS -->
-	<div id="user-form" class="row">
+	<div id="user-form" class="form-horizontal">
 		<div class="col-sm-8 col-sm-offset-2 text-center">
-			<form>
-				<div class="form-group">
-
+			<form name="modelCreate" ng-submit="modelCreate.$valid && submitted && createUser()" novalidate>
+				<div class="form-group" ng-class="{'has-error': submitted && modelCreate.name.$invalid}">
 					<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-					<input type="text" class="form-control input-lg text-center" placeholder="Name goes here" ng-model="formData.text">
+					<div class="col-sm-12">
+						<input type="name" name="name"  class="form-control input-lg text-center" placeholder="Model" ng-model="formData.name" required />
+						<div ng-show="submitted && modelCreate.name.$invalid">
+							<p ng-show="modelCreate.name.$error.required">Required</p>
+						</div>
+						
+					</div>
+					
 				</div>
 
 				<!-- createToDo() WILL CREATE NEW TODOS -->
-				<button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Add</button>
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="submitted=true">Add</button>
 			</form>
 		</div>
 	</div>

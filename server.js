@@ -20,6 +20,7 @@ app.configure(function() {
 	// For parsing responses
 	app.use(express.json());
 	app.use(express.urlencoded());
+
 });
 
 // Routes
