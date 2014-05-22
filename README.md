@@ -1,10 +1,7 @@
 # MEAN Skeleton
------
 This repo is a basic structure for a web application that uses the MEAN stack (MongoDB, Express, AngularJS, and NodeJS). It is made for beginners with a basic understanding of these technologies. If there are any questions, feel free to create a New Issue on the repository.
 
 ## Setup
----
-
 #### Node
 To get this running locally, start by installing [**NodeJS**](http://nodejs.org/download/). The Node website is very good at explaining how to do this. Once installed verify that npm (Node Package Manager) came with the installation by running npm in Terminal.
 
@@ -15,7 +12,6 @@ I recommend installing [Nodemon](https://github.com/remy/nodemon) to assist you 
 Next, download and install [**MongoDB**](http://www.mongodb.org/downloads). Verify that this is installed correctly by running the mongo server locally with the command ```mongod```. The mongod service must be running locally to point to local Mongo databases.
 
 ## Configure
----
 Clone the repository, and you will have the structure in place to start. Begin by editting the package.json file.
 
 #### Package.json
@@ -66,7 +62,6 @@ To run this server, in the root of the project directory run
 It will start the application and you should be able to navigate to http://localhost:3000 and see our first page.
 
 ## Make it Yours
-----
 ### Defining a Model
 This application is designed to implement the MV* pattern. Thus, start by creating a Model for our data.
 
