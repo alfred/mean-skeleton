@@ -17,15 +17,15 @@ app.configure(function() {
 	// log every request to the console
 	app.use(express.logger('dev'));
 
-	// For parsing responses
+	// For parsing HTTP responses
 	app.use(express.json());
 	app.use(express.urlencoded());
 
 });
 
-// Routes
+// Express Routes
 require('./app/routes/api')(app);
 require('./app/routes/routes')(app);
 
-// Start the app with listen
+// Start the app with listen and a port number
 app.listen(3000);

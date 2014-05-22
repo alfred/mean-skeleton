@@ -55,6 +55,52 @@ module.exports = {
 }
 ```
 
+#### Server Settings
+Right now we have a few moving parts, but they aren't connected yet. Let's change that.
+
+In the root of our project you'll find a server.js file. This is the file that we will run to make our server live.
+
+First, we require our dependencies. In the case of this skeleton, we only have Express and mongoose.
+```javascript
+// server.js
+
+// Dependencies
+var express = require('express');
+var mongoose = require('mongoose');
+```
+
+Next, we configure our Express application. I import the database file to this one in an effort to keep the database file nice and lean.
+```javascript
+// Configs
+var db = require('./config/db');
+
+// Connect to the DB
+mongoose.connect(db.url);
+
+var app = express();
+// App Config
+app.configure(function() {
+	// To expose public assets to the world
+	app.use(express.static(__dirname + '/public'));
+
+	// log every request to the console
+	app.use(express.logger('dev'));
+
+	// For parsing responses
+	app.use(express.json());
+	app.use(express.urlencoded());
+
+});
+
+// Express Routes
+require('./app/routes/api')(app);
+require('./app/routes/routes')(app);
+
+// Start the app with listen
+app.listen(3000);
+
+```
+
 #### Run our server
 To run this server, in the root of the project directory run 
 
