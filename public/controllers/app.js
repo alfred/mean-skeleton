@@ -1,8 +1,8 @@
 // Export the controller
-var appController = angular.module('appController', []);
+var myApp = angular.module('myApp', []);
 
 // Defining wrapper Routes for our API
-function appCtrl($scope, $http) {
+myApp.controller('appCtrl', function appCtrl($scope, $http) {
 	$scope.formData = {};
 
 	$http.get('/models')
@@ -36,4 +36,4 @@ function appCtrl($scope, $http) {
 				console.log("Error: " + data);
 			});
 	};
-}
+});

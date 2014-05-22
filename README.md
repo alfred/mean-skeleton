@@ -71,6 +71,8 @@ var mongoose = require('mongoose');
 
 Next, we configure our Express application. I import the database file to this one in an effort to keep the database file nice and lean.
 ```javascript
+// server.js
+
 // Configs
 var db = require('./config/db');
 
@@ -91,6 +93,13 @@ app.configure(function() {
 	app.use(express.urlencoded());
 
 });
+```
+
+After configuring, we add the routes by sending the application as a parameter to the require statements.
+
+Lastly, start the application with listen by giving it a port number. 
+```javascript
+// server.js
 
 // Express Routes
 require('./app/routes/api')(app);
@@ -197,8 +206,8 @@ To create a model and return them all after one is created.
 
 So far we have set up quite the backend, and gone over the M, E, and N in MEAN. Now we can finally start **A**.
 
-## Make it pretty with Angular
-We use [AngularJS](https://angularjs.org/) to receive all of the data sent from Node in the backend to give us a truly dnamic webpage it also offers us many directives to display this data on the frontend. 
+## Make It Pretty
+We use [AngularJS](https://angularjs.org/) to receive all of the data sent from Node in the backend to give us a truly dynamic webpage it also offers us many directives to display this data on the frontend. 
 
 ### Define an Angular Controller
 Angular follows the MVC pattern on the frontend. We won't have to really do anything to the model once it gets to Angular so, next up is the Controller. We define Angular controllers and export them as angular modules. 
