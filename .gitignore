@@ -1,0 +1,5 @@
+# Dependency directory
+node_modules
+
+# OS X View structure
+.DS_Store
