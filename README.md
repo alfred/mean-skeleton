@@ -46,7 +46,7 @@ This will install [**Express**](http://expressjs.com/4x/api.html) along with the
 <Enter>
 <Enter>
 
-#### Pointing to a database
+#### Connecting to a Database
 Replace the link below with the url for your hosted DB or keep this url for the default local MongoDB
 ```javascript
 // config/db.js
@@ -104,11 +104,11 @@ app.listen(3000);
 #### Run our server
 To run this server, in the root of the project directory run 
 
-```node server.js```
+```node server.js``` or if using nodemon ```nodemon server.js```
 
 It will start the application and you should be able to navigate to http://localhost:3000 and see our first page.
 
-## Make it Yours
+## Make It Yours
 ### Defining a Model
 This application is designed to implement the MV* pattern. Thus, start by creating a Model for our data.
 
