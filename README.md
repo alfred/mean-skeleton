@@ -1,7 +1,10 @@
 # MEAN Skeleton
+-----
 This repo is a basic structure for a web application that uses the MEAN stack (MongoDB, Express, AngularJS, and NodeJS). It is made for beginners with a basic understanding of these technologies. If there are any questions, feel free to create a New Issue on the repository.
 
 ## Setup
+---
+
 #### Node
 To get this running locally, start by installing [**NodeJS**](http://nodejs.org/download/). The Node website is very good at explaining how to do this. Once installed verify that npm (Node Package Manager) came with the installation by running npm in Terminal.
 
@@ -12,6 +15,7 @@ I recommend installing [Nodemon](https://github.com/remy/nodemon) to assist you 
 Next, download and install [**MongoDB**](http://www.mongodb.org/downloads). Verify that this is installed correctly by running the mongo server locally with the command ```mongod```. The mongod service must be running locally to point to local Mongo databases.
 
 ## Configure
+---
 Clone the repository, and you will have the structure in place to start. Begin by editting the package.json file.
 
 #### Package.json
@@ -62,6 +66,7 @@ To run this server, in the root of the project directory run
 It will start the application and you should be able to navigate to http://localhost:3000 and see our first page.
 
 ## Make it Yours
+----
 ### Defining a Model
 This application is designed to implement the MV* pattern. Thus, start by creating a Model for our data.
 
@@ -152,3 +157,42 @@ So far we have set up quite the backend, and gone over the M, E, and N in MEAN. 
 
 ## Make it pretty with Angular
 We use [AngularJS](https://angularjs.org/) to receive all of the data sent from Node in the backend to give us a truly dnamic webpage it also offers us many directives to display this data on the frontend. 
+
+### Define an Angular Controller
+Angular follows the MVC pattern on the frontend. We won't have to really do anything to the model once it gets to Angular so, next up is the Controller. We define Angular controllers and export them as angular modules. 
+
+[Angular Services](https://docs.angularjs.org/api/ng/service)
+
+To add more functionality to our controller, we can throw in more angular services as arguments after ```$scope```
+
+I recommend adding the ```$http``` service to make frontend wrappers for our API calls.
+```javascript
+var appController = angular.module('appController', []);
+
+function appCtrl($scope, $http) {
+    ...
+}
+```
+
+[Angular Directives](https://docs.angularjs.org/api/ng/directive)
+
+To use what we have defined in our controller, we use the ng-app directive to point to the controller for this page. We must also be sure to load angular and the controller.js file.
+
+Lastly, add the ng-controller directive to the body of the document to make all of the controller methods available to the body.
+
+
+```html
+<!DOCTYPE html>
+<html ng-app="appController">
+    <head>
+	<!--  Angular from Google CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+	
+	<!-- Load AppController -->
+	<script type="text/javascript" src="../controllers/app.js"></script>
+    </head>
+    <body ng-controller="appCtrl">
+        
+    </body>
+</html>
+```

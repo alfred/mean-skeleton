@@ -1,4 +1,4 @@
-var appSkeleton = angular.module('appSkeleton', []);
+var appController = angular.module('appController', []);
 
 function appCtrl($scope, $http) {
 	$scope.formData = {};
