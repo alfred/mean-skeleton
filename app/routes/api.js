@@ -17,7 +17,7 @@ module.exports = function(app) {
 	// Example POST route
 	app.post('/models', function (req, res) {
 		Model.create({
-			name : req.body.name
+			name : req.body.name // Bound using Angular
 		}, function(err, model) {
 			if(err) {
 				res.send(err);
