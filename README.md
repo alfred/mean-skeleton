@@ -247,3 +247,22 @@ Lastly, add the ng-controller directive to the body of the document to make all 
     </body>
 </html>
 ```
+
+## Testing Your Application
+Making sure that our application works is an incredibly important part of developing for any platform. The entire software stack in this instance is JavaScript. This means we only need JavaScript testing libraries. 
+
+#### Testing Angular
+[Jasmine](http://jasmine.github.io/) is recommended for testing your frontend JavaScripts. If you are unfamiliar with jasmine check out the tutorial [here](http://jasmine.github.io/2.0/introduction.html)
+
+You can find a very basic angular controller spec in the ``test-angular/spec/`` directory.
+
+#### Testing Node
+[jasmine-node](https://github.com/mhevery/jasmine-node) is jasmine for your Node backend. Their documentation is brief because they assume that you are familiar with running jasmine already. 
+
+Install the package globally and it comes with a CLI. 
+
+To run Node tests:
+
+```jasmine-node test-node/```
+
+This will recursively run all the files named *spec.js, which means all of your specs must end with spec.js 
