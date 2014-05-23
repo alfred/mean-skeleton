@@ -7,10 +7,11 @@ This repo is a basic structure for a web application that uses the MEAN stack (M
 To get this running locally, start by installing [**NodeJS**](http://nodejs.org/download/). The Node website is very good at explaining how to do this. Once installed verify that npm (Node Package Manager) came with the installation by running npm in Terminal.
 
 #### Nodemon
-I recommend installing [Nodemon](https://github.com/remy/nodemon) to assist you in development. It will watch for changes in your server files and automatically restart the server for you. So you can stick to developing instead of constantly restarting the process manually.
+I recommend installing [Nodemon](https://github.com/remy/nodemon) to assist you in development. It will watch for changes in your server files and automatically restart the server for you. That way you can stick to developing rather than constantly restarting the process manually.
 
 #### Mongo
-Next, download and install [**MongoDB**](http://www.mongodb.org/downloads). Verify that this is installed correctly by running the mongo server locally with the command ```mongod```. The mongod service must be running locally to point to local Mongo databases.
+Next, download and install [**MongoDB**](http://www.mongodb.org/downloads). **Make sure to follow all the directions for installing on your respective operating system.** Verify that this is installed correctly by running the mongo server locally with the command ```mongod```. The mongod service must be running locally to point to local Mongo databases.
+
 
 ## Configure
 Clone the repository, and you will have the structure in place to start. Begin by editting the package.json file.
@@ -147,7 +148,7 @@ Lastly, you are going to want to export the model with a name and a Schema Objec
 ### Defining Routes
 These are Express-style routes, to see all the fancy things you can do refer to the Express docs.
 
-To define a simple route to serve an HTML page:
+To define a simple route to serve a staticA HTML page:
 ```javascript
 // app/routes/route.js
 module.exports = function(app) {
