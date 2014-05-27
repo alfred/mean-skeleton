@@ -267,3 +267,6 @@ To run Node tests:
 ```jasmine-node test-node/```
 
 This will recursively run all the files named *spec.js, which means all of your specs must end with spec.js 
+
+## Disclaimer 
+I do not claim to be an expert at any of the technologies used. I also do not claim to own any of the technologies mentioned in this guide.
