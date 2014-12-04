@@ -157,7 +157,7 @@ Lastly, you are going to want to export the model with a name and a Schema Objec
 ### Defining Routes
 These are Express-style routes, to see all the fancy things you can do refer to the Express docs.
 
-To define a simple route to serve a staticA HTML page:
+To define a simple route to serve a static HTML page:
 ```javascript
 // app/routes/route.js
 module.exports = function(app) {
