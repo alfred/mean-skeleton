@@ -6,7 +6,7 @@
 	"author"       : "Alfred",
 	"dependencies" : {
 		"express"    : "~3.4.4",
-		"mongoose"	 : "3.8.x",
+		"mongoose"	 : "latest",
 		"request"	 : "latest"
 	},
 	"repository"   :
