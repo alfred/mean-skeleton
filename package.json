@@ -1,12 +1,12 @@
 {
 	"name"         : "mean-skeleton",
-	"version"      : "0.0.1",
+	"version"      : "0.1.1",
 	"description"  : "Skeleton for an application using the MEAN stack.",
 	"main"         : "server.js",
 	"author"       : "Alfred",
 	"dependencies" : {
 		"express"    : "~3.4.4",
 		"mongoose"	 : "3.8.x",
-		"request"	 : "2.36.0"
+		"request"	 : "latest"
 	}
 }
