@@ -26,8 +26,8 @@ Clone the repository, and you will have the structure in place to start. Begin b
 	"main"         : "server.js",
 	"author"       : "Alfred",
 	"dependencies" : {
-		"express"    : "~3.4.4",
-		"mongoose"	 : "3.8.x"
+		"express"    : "latest",
+		"mongoose"	 : "latest"
 	}
 }
 ```
@@ -42,7 +42,10 @@ Install all listed dependencies by navigating to the repository in Terminal and 
 
 ```npm install``` 
 
-This will install [**Express**](http://expressjs.com/4x/api.html) along with the other packages in the package.json file.
+This will install [**Express**](http://expressjs.com/4x/api.html) along with the other packages in the package.json file. 
+
+In the above, "latest" denotes version number. It's a string. I set it to latest to simplify use. I am also assuming that these package owners will continue to document their changes as they update their packages. Luckily [**StrongLoop**](http://strongloop.com/) is pretty good about it.
+
 <Enter>
 <Enter>
 <Enter>
@@ -62,12 +65,19 @@ Right now we have a few moving parts, but they aren't connected yet. Let's chang
 In the root of our project you'll find a server.js file. This is the file that we will run to make our server live.
 
 First, we require our dependencies. In the case of this skeleton, we only have Express and mongoose.
+
+I also declare bodyParser, which is an Express middleware for parsing HTTP Responses and Requests. 
+
+Lastly, I declare morgan, another Express middleware for logging. I suggest reading up on them and other Express middlewares, but the settings I have here should work for this example.
+
 ```javascript
 // server.js
 
 // Dependencies
 var express = require('express');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
 ```
 
 Next, we configure our Express application. I import the database file to this one in an effort to keep the database file nice and lean.
@@ -81,19 +91,19 @@ var db = require('./config/db');
 mongoose.connect(db.url);
 
 var app = express();
-// App Config
-app.configure(function() {
-	// To expose public assets to the world
-	app.use(express.static(__dirname + '/public'));
+// Configure 
 
-	// log every request to the console
-	app.use(express.logger('dev'));
+// To expose public assets to the world
+app.use(express.static(__dirname + '/public'));
 
-	// For parsing responses
-	app.use(express.json());
-	app.use(express.urlencoded());
+// log every request to the console
+app.use(morgan('dev'));
 
-});
+// For parsing HTTP responses
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 ```
 
 After configuring, we add the routes by sending the application as a parameter to the require statements.
