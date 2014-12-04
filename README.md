@@ -64,11 +64,9 @@ Right now we have a few moving parts, but they aren't connected yet. Let's chang
 
 In the root of our project you'll find a server.js file. This is the file that we will run to make our server live.
 
-First, we require our dependencies. In the case of this skeleton, we only have Express and mongoose.
+First, we require our dependencies. You'll notice I declare bodyParser, which is an Express middleware for parsing HTTP Responses and Requests. I also declare morgan, another Express middleware, used for logging. 
 
-I also declare bodyParser, which is an Express middleware for parsing HTTP Responses and Requests. 
-
-Lastly, I declare morgan, another Express middleware for logging. I suggest reading up on them and other Express middlewares, but the settings I have here should work for this example.
+I suggest reading up on them and other Express middlewares, but the settings I have here should work for this example.
 
 ```javascript
 // server.js
